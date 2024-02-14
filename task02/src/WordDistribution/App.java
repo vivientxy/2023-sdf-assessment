@@ -58,17 +58,21 @@ public class App {
                 // handle each text file (read, process, print)
                 BufferedReader br = new BufferedReader(new FileReader(file));
                 String text = "";
-                while (true) {
-                    try {
-                        // append into one long line
-                        text = text + br.readLine() + " "; 
-                    } catch (Exception e) {
-                        break;
-                    } finally {
-                        br.close();
+                
+                try {
+                    // append into one long line
+                    String temp;
+                    while ((temp = br.readLine()) != null) {
+                        text += temp + " ";
                     }
+                } catch (Exception e) {
+                    break;
+                } finally {
+                    br.close();
                 }
                 
+                System.out.println(text);
+                System.out.println(text.replaceAll("[^a-zA-Z ]", "").toLowerCase());
                 // remove punctuations, make lowercase and split text
                 String[] textSplit = text.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
         
