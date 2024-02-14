@@ -7,8 +7,6 @@ import java.util.Objects;
 public class Word {
     private final String firstWord;
     private Map<String, Integer> secondWordCount = new HashMap<>();;
-    // private Map<String, Integer> secondWordProbability = new HashMap<>();
-
 
     public Word(String firstWord) {
         this.firstWord = firstWord;
